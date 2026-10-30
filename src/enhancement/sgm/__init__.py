@@ -1,0 +1,1 @@
+"""Vendored diffusion inference implementation."""

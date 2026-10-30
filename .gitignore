@@ -221,3 +221,6 @@ __marimo__/
 
 # System
 .DS_Store
+
+# ML models
+models/
