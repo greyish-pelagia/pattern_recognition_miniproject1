@@ -28,7 +28,7 @@ training = [
     "opencv-python>=5.0.0.93",
     "scikit-learn>=1.9.1",
 ]
-notebooks = ["ipykernel>=7.4.0", "ipywidgets>=8.1.9", "jupyter>=1.1.1"]
+notebooks = ["ipykernel>=7.4.0"]
 visualization = ["matplotlib>=3.11.2", "scikit-learn>=1.9.1"]
 
 [dependency-groups]

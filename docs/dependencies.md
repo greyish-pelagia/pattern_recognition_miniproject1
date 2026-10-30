@@ -13,7 +13,7 @@ potrzebne do swojej części projektu:
 |---|---|---|
 | `enhancement` | SUPIR: Torch, torchvision, OpenCLIP, Transformers i zależności | `uv sync --extra enhancement` |
 | `training` | scikit-learn, OpenCV, Matplotlib | `uv sync --extra training` |
-| `notebooks` | Jupyter, ipykernel, ipywidgets | `uv sync --extra notebooks` |
+| `notebooks` | ipykernel | `uv sync --extra notebooks` |
 | `visualization` | Matplotlib i scikit-learn do PCA | `uv sync --extra visualization` |
 
 Dodatki można łączyć, np. `uv sync --extra training --extra notebooks`.
