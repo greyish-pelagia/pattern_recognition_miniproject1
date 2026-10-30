@@ -97,3 +97,27 @@ uv run python -m pytest tests/test_features.py tests/test_dataset.py -q
 
 Test integracji z preprocessingiem używa `dry_run=True`; nie potwierdza
 wykonania modelu SUPIR na GPU.
+
+## Wizualizacje deskryptorów
+
+```bash
+uv run --extra visualization python -m src.features.visualize \
+  outputs/easy_raw outputs/hard_raw --output outputs/visualizations
+```
+
+Powstają przestrzenie cech oraz plansze RGB, Lab, GLCM i LBP dla obu zadań.
+Każdy punkt to obraz; rzut PCA pokazuje tylko część informacji z pełnej macierzy.
+Mapy przedstawiają obliczenia cech, a nie lokalizację choroby.
+
+Podział należy do modułu treningowego. Opcjonalny `split.csv` przy macierzy
+musi mieć identyczną kolejność `sample_id` i kolumnę `split` z wartościami
+`development`/`test`. Wtedy wykresy pomijają test. Bez tego pliku pokazują
+wszystkie dostarczone przykłady i jawnie oznaczają brak podziału.
+
+Obecne podglądy wymagają `input_scope=whole_image`: nie ignorują po cichu
+masek z przyszłego preprocessingu. `manifest.json` zapisuje zakres, przykłady
+i zachowaną wariancję PCA. Wizualizacje nie trenują klasyfikatora.
+
+```bash
+uv run --extra visualization python -m pytest tests/test_visualize.py -q
+```
