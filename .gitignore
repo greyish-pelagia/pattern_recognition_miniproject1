@@ -224,3 +224,6 @@ __marimo__/
 
 # ML models
 models/
+
+# Generated features and local experiments
+outputs/
