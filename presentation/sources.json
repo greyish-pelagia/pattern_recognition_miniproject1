@@ -1,0 +1,169 @@
+{
+  "scope": "Presentation assets derived from real project images; no generated leaf images. Paths relative to project root.",
+  "runtime": {
+    "python": "3.12.15",
+    "opencv": "5.0.0",
+    "numpy": "2.5.4",
+    "pillow": "13.0.0",
+    "interpreter": "Existing read-only sibling computer_vision/.venv; no project dependency changes"
+  },
+  "preprocessing_sources": [
+    "src/preprocessing/pipeline.py",
+    "src/preprocessing/morphology.py",
+    "src/preprocessing/adjustment.py",
+    "src/preprocessing/normalization.py",
+    "src/training/data.py"
+  ],
+  "images": {
+    "cover.jpg": {
+      "source": "data/Task 1 - Simple/Potato___Early_blight/1de8ed75-0778-4364-9178-52c1bd0dffb4___RS_Early.B 6729.JPG",
+      "source_sha256": "ba6ab56bf123f8dafbca2b454ba4faff0cd8fbfc2e8285c145abfefea4dd3964",
+      "operation": "Original JPEG copied without modification"
+    },
+    "healthy.jpg": {
+      "source": "data/Task 1 - Simple/Potato___healthy/61b05f0a-14bc-4c8f-a256-57c8b8898d8c___RS_HL 1769.JPG",
+      "source_sha256": "c16255e657b91840ef5f082a3ea4471b92be7716aa6629615956706831ee189f",
+      "operation": "Original JPEG copied without modification"
+    },
+    "early.jpg": {
+      "source": "data/Task 1 - Simple/Potato___Early_blight/2d344be7-2d5f-4d27-aeb2-b92c8191b877___RS_Early.B 7173.JPG",
+      "source_sha256": "f43e8ccb65c9e9827c219300154555032c468e043cfbac11ce3cceca715db56c",
+      "operation": "Original JPEG copied without modification"
+    },
+    "late.jpg": {
+      "source": "data/Task 2 - Hard/Potato___Late_blight/4d085c80-4d57-4377-8fb3-eab3a25e5f5c___RS_LB 3060.JPG",
+      "source_sha256": "f57d0c3286829d3ec668f0bed43af9f4f8efad3b0ffa612af29243774e4582eb",
+      "operation": "Original JPEG copied without modification"
+    },
+    "typical-original.jpg": {
+      "source": "data/Task 1 - Simple/Potato___healthy/77c75478-e1f0-4aaa-9cbc-af1fed928a74___RS_HL 1748.JPG",
+      "source_sha256": "0404e7f770290023ebe201ef2d48e7249ac03c39e45d2cfe7ceb1230da77fda3",
+      "operation": "Original JPEG copied without modification"
+    },
+    "typical-mask.png": {
+      "source": "data/Task 1 - Simple/Potato___healthy/77c75478-e1f0-4aaa-9cbc-af1fed928a74___RS_HL 1748.JPG",
+      "source_sha256": "0404e7f770290023ebe201ef2d48e7249ac03c39e45d2cfe7ceb1230da77fda3",
+      "operation": "Current src.preprocessing.morphology.create_leaf_mask, default opening3/closing7; computed on original RGB"
+    },
+    "typical-processed.png": {
+      "source": "data/Task 1 - Simple/Potato___healthy/77c75478-e1f0-4aaa-9cbc-af1fed928a74___RS_HL 1748.JPG",
+      "source_sha256": "0404e7f770290023ebe201ef2d48e7249ac03c39e45d2cfe7ceb1230da77fda3",
+      "operation": "Current src.preprocessing.pipeline.preprocess_images with filtered_clahe training settings. float32 [0,1] converted to uint8 only for display.",
+      "settings": {
+        "brightness_adjustment": 1.0,
+        "contrast_adjustment": 1.0,
+        "brightness_reference": 128.0,
+        "contrast_reference": 40.0,
+        "histogram_equalization": true,
+        "normalize": true,
+        "normalization_method": "min-max",
+        "apply_filter": true,
+        "filter_type": "gaussian",
+        "binarize": false,
+        "binarize_per_channel": true,
+        "apply_morphology": false,
+        "morphology_operation": "opening-closing",
+        "morphology_kernel_size": 3,
+        "remove_background": true,
+        "leaf_mask_stage": "start"
+      }
+    },
+    "tough-original.jpg": {
+      "source": "data/Task 2 - Hard/Potato___Early_blight/432f1b02-9493-4cf1-8ef7-a40f817e43ff___RS_Early.B 8497.JPG",
+      "source_sha256": "a8482cb511c55521223e186bf5405b12d706eabd7bac1b1aa5ade78a5bf16c02",
+      "operation": "Original JPEG copied without modification",
+      "saved_error_evidence": {
+        "notebook": "model_training_hard.ipynb",
+        "cell_index": 19,
+        "cell_id": "65caa2de",
+        "output_index": 0,
+        "position": "first original image (top-left)",
+        "true_class": "Potato___Early_blight",
+        "predicted_by_all_five_models": "Potato___Late_blight",
+        "selection": "Matched original image to embedded error-panel crop; RGB MSE at 32x32 = 0.95; next candidate >973"
+      }
+    },
+    "tough-processed.png": {
+      "source": "data/Task 2 - Hard/Potato___Early_blight/432f1b02-9493-4cf1-8ef7-a40f817e43ff___RS_Early.B 8497.JPG",
+      "source_sha256": "a8482cb511c55521223e186bf5405b12d706eabd7bac1b1aa5ade78a5bf16c02",
+      "operation": "Current src.preprocessing.pipeline.preprocess_images with filtered_clahe training settings. float32 [0,1] converted to uint8 only for display.",
+      "settings": {
+        "brightness_adjustment": 1.0,
+        "contrast_adjustment": 1.0,
+        "brightness_reference": 128.0,
+        "contrast_reference": 40.0,
+        "histogram_equalization": true,
+        "normalize": true,
+        "normalization_method": "min-max",
+        "apply_filter": true,
+        "filter_type": "gaussian",
+        "binarize": false,
+        "binarize_per_channel": true,
+        "apply_morphology": false,
+        "morphology_operation": "opening-closing",
+        "morphology_kernel_size": 3,
+        "remove_background": true,
+        "leaf_mask_stage": "start"
+      }
+    },
+    "shape-mask.png": {
+      "source": "data/Task 1 - Simple/Potato___healthy/58a98860-86d8-41e7-9f8c-cc2ca5e90012___RS_HL 1758.JPG",
+      "source_sha256": "ba274c118cde44eefc3a3bf2485e2708ac5d7ba7f178f13bc199833e66478923",
+      "operation": "Current create_leaf_mask on a distinct source leaf. Illustration for lab1 techniques; not a lab1 experimental result."
+    },
+    "texture-healthy.png": {
+      "source": "data/Task 1 - Simple/Potato___healthy/5cb360dd-5c17-4c57-b31d-97cd8dd8d0bd___RS_HL 1797.JPG",
+      "source_sha256": "856d74cd84e27c2aa8d431f8b8b41fb684d2407ebd0d90d71503b89a92391bfc",
+      "operation": "Pillow RGB to grayscale, then 96x96 crop; illustration for lab2 techniques, not a lab2 experimental result.",
+      "crop_xyxy": [
+        70,
+        62,
+        166,
+        158
+      ]
+    },
+    "texture-diseased.png": {
+      "source": "data/Task 1 - Simple/Potato___Early_blight/2c48971d-9f73-401d-a62a-f3729d08b6c2___RS_Early.B 7463.JPG",
+      "source_sha256": "0601ec177e86dd1bb455832ede61269d654538fb616183e67d3558a3889d7bbd",
+      "operation": "Pillow RGB to grayscale, then 96x96 crop; illustration for lab2 techniques, not a lab2 experimental result.",
+      "crop_xyxy": [
+        118,
+        78,
+        214,
+        174
+      ]
+    },
+    "descriptor-color.png": {
+      "source": "data/Task 1 - Simple/Potato___healthy/77c75478-e1f0-4aaa-9cbc-af1fed928a74___RS_HL 1748.JPG",
+      "source_sha256": "0404e7f770290023ebe201ef2d48e7249ac03c39e45d2cfe7ceb1230da77fda3",
+      "derived_from": "typical-processed.png",
+      "operation": "Lab a* of typical-processed.png, coolwarm colormap fixed [-25,25], outside current leaf mask black. Illustration of color measurement, not a lesion map.",
+      "implementation_reference": "src/features/extract.py"
+    },
+    "descriptor-glcm.png": {
+      "source": "data/Task 1 - Simple/Potato___healthy/77c75478-e1f0-4aaa-9cbc-af1fed928a74___RS_HL 1748.JPG",
+      "source_sha256": "0404e7f770290023ebe201ef2d48e7249ac03c39e45d2cfe7ceb1230da77fda3",
+      "derived_from": "typical-processed.png",
+      "operation": "Masked symmetric GLCM with 32 gray levels, distance1 and mean over angles0,45,90,135 degrees; each directional matrix normalized. Display log10 probabilities over [1e-5,1] with magma colormap. Matrix native32x32; illustration of gray-level pairs, not a spatial lesion map.",
+      "implementation_reference": "src/features/extract.py"
+    },
+    "descriptor-lbp.png": {
+      "source": "data/Task 1 - Simple/Potato___healthy/77c75478-e1f0-4aaa-9cbc-af1fed928a74___RS_HL 1748.JPG",
+      "source_sha256": "0404e7f770290023ebe201ef2d48e7249ac03c39e45d2cfe7ceb1230da77fda3",
+      "derived_from": "typical-processed.png",
+      "operation": "Uniform LBP radius1, 8 neighbors, tab10 colors for codes0..9; black outside complete 3x3 masked neighborhoods as used in current extraction. Illustration of texture codes, not a lesion map.",
+      "implementation_reference": "src/features/extract.py"
+    }
+  },
+  "metrics_sources": {
+    "simple": "model_training_simple.ipynb: saved cells 3,7,9,11,13,15,17,19",
+    "hard": "model_training_hard.ipynb: saved cells 3,7,9,11,13,15,17,19"
+  },
+  "cautions": [
+    "Metrics are saved notebook outputs, not a new training run.",
+    "Current training uses 50 masked color/GLCM/LBP/shape features; raw visualization exports use a different whole-image setup.",
+    "Group splitting prevents exact pixel duplicates crossing folds; it does not identify different photographs of the same physical leaf.",
+    "Typical preprocessing illustration has no asserted classifier prediction.",
+    "SVM RBF wins hard cross-validation; logistic regression has one more correct prediction on hard test."
+  ]
+}
